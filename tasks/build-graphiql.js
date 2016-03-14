@@ -15,7 +15,7 @@ module.exports = () => {
     graphql(schema, introspection)
     .then(result => {
       browserify([
-          path.join(process.cwd(), '/app/client/graphiql.jsx')
+          path.join(process.cwd(), '/app/client/Graphiql.jsx')
         ], {
           debug: true,
           basedir: path.join(process.cwd(), '/app/client'),
