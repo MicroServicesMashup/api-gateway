@@ -1,0 +1,43 @@
+{
+  "name": "api-gateway",
+  "version": "1.0.0",
+  "description": "API Gateway",
+  "private": true,
+  "scripts": {},
+  "main":"index.js",
+  "scripts":{
+    "start": "node index"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.7.2",
+    "babel-loader": "^6.2.3",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babel-relay-plugin": "^0.7.3",
+    "babelify": "^7.2.0",
+    "body-parser": "^1.15.0",
+    "browserify": "^13.0.0",
+    "classnames": "^2.2.3",
+    "cors": "^2.7.1",
+    "dataloader": "^1.1.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.4",
+    "express-static": "^1.0.3",
+    "graphiql": "^0.5.0",
+    "graphql": "^0.4.18",
+    "graphql-relay": "^0.3.6",
+    "lc-http-client": "^1.1.1",
+    "lodash": "^4.5.1",
+    "moment": "^2.11.1",
+    "node-lessify": "^0.1.1",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-relay": "^0.7.3",
+    "react-router": "^2.0.1",
+    "react-router-relay": "^0.9.0",
+    "webpack": "^1.12.14"
+  }
+}

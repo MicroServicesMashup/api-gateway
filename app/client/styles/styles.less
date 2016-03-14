@@ -1,0 +1,101 @@
+@import (once, reference) "imports/colors.less";
+@import (once, reference) "imports/mixins.less";
+@import (once, reference) "imports/urls.less";
+
+@import "buttons.less";
+@import "fonts.less";
+
+@import "components/Header.less";
+@import "components/Panel.less";
+@import "components/SiteMenu.less";
+@import "components/Dashboard.less";
+@import "components/EventNewForm.less";
+@import "components/ClientPicker.less";
+@import "components/ClientSheet.less";
+@import "components/Colors.less";
+@import "components/Dossier.less";
+@import "components/Efforts.less";
+@import "components/EventBox.less";
+@import "components/EventNewForm.less";
+@import "components/Login.less";
+@import "components/MainMenu.less";
+@import "components/MainSearch.less";
+@import "components/Notifications.less";
+@import "components/PersonSlider.less";
+@import "components/GroupBox.less";
+@import "components/GroupCalender.less";
+@import "components/AddButton.less";
+@import "components/MainMenuDropDown.less";
+@import "components/QBelegeOffene.less";
+@import "components/QBelegeModalAlle.less";
+@import "components/BlockOverlay.less";
+@import "components/StandardDialog.less";
+@import "components/JumboConfirm.less";
+@import "components/FormComponents.less";
+
+@import "components/TmpModal.less";
+@import "components/LeistungsDialog.less";
+@import "components/DialogClients.less";
+@import "components/QBelegReport.less";
+
+body {
+  background-color: @body-background;
+  min-width: 640px;
+  overflow-y: scroll;
+}
+
+ul, li, a {
+  outline: none !important;
+  text-decoration: none !important;
+}
+
+#container-main {
+  padding: 25px 40px;
+}
+
+// #blockscroll {
+//   width: 100%;
+//   height: 100%;
+
+//   #blockoverlay, .blockoverlay, .blockcontent {
+//     display: none;
+//   }
+
+//   &.blocked {
+//     overflow: hidden;
+//     position: fixed;
+
+//     #blockoverlay, .blockoverlay, .blockcontent {
+//       position: fixed;
+//       display: block;
+//       top: 0;
+//       left: 0;
+//       width: 100%;
+//       height: 100%;
+//       z-index: 1100;
+//     }
+
+//     #blockoverlay, .blockoverlay {
+//       background-color: #000;
+//       opacity: 0.8;
+//     }
+
+//   }
+
+// }
+
+.imnothere {
+  display: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.margin-after {
+  margin-bottom: 45px;
+}
