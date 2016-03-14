@@ -1,6 +1,6 @@
 'use strict';
 
-const DISCOVERY_URLS = (process.env.DISCOVERY_URLS || '').split(',').concat(['http://46.101.175.234:8500']);
+const DISCOVERY_URLS = (process.env.DISCOVERY_URLS || '').split(',').concat(['http://46.101.251.23:8500']);
 const accountSeeds = require('./seeds/accounts.json');
 
 const DataLoader = require('dataloader');
