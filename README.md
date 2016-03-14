@@ -8,4 +8,5 @@ API Gateway
 
 # Configuration Parameters
 
-* DISCOVERY_URLS []
+* DISCOVERY_URLS=http://46.101.251.23:8500
+* SERVICE_NAME=music-store-management

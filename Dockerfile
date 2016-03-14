@@ -9,6 +9,8 @@ RUN npm install
 COPY . /usr/src/app
 
 ENV DISCOVERY_URLS=http://46.101.251.23:8500
+ENV SERVICE_NAME=music-store-management
+
 EXPOSE 8080
 
 ENTRYPOINT node index.js
