@@ -4,6 +4,7 @@ const express         = require('express');
 const cors            = require('cors');
 const ejs             = require('ejs');
 const bodyParser      = require('body-parser');
+const endpoints       = require('express-endpoints');
 const graphql         = require('graphql').graphql;
 
 const buildAppTask        = require('./tasks/build-app');
@@ -29,39 +30,31 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.options('*', cors());
 
-let server;
-
 app.all('/graphql', (req, res) => {
   graphql(schema, req.query.query || req.body.query || req.body, null, req.body.variables)
     .then(result => res.send(JSON.stringify(result, null, 4)));
 });
 
-app.all('/graphiql', (req, res) => {
-  res.render('graphiql');
-});
-
-app.get('/endpoints', (req, res) => {
-  http
-    .getServiceUrls(SERVICE_NAME)
-    .then(ips => {
-      var result = [];
-      ips.forEach(ip => {
-        app._router.stack.forEach(r => {
-          if (r.route && r.route.path && r.route.path !== '*') result.push(`http://${ip}${r.route.path}`);
-        });
-
-      });
-      return result;
-    })
-    .then(result => res.send({endpoint_urls: result}));
-});
-
-app.get('/', (req, res) => {
-  res.render('app');
-});
+app.all('/graphiql', (req, res) => res.render('graphiql'));
+app.get('/endpoints', endpoints());
+app.get('/', (req, res) => res.render('app'));
 
 buildAppTask()
   .then(buildGraphIQLTask)
-  .then(() => {
-    server = app.listen(SERVICE_PORT, () => console.log(`Listen on: ${SERVICE_PORT}`));
-  });
+  .then(() => app.listen(SERVICE_PORT, () => console.log(`Listen on: ${SERVICE_PORT}`)));
+
+// app.get('/endpoints', (req, res) => {
+//   http
+//     .getServiceUrls(SERVICE_NAME)
+//     .then(ips => {
+//       var result = [];
+//       ips.forEach(ip => {
+//         app._router.stack.forEach(r => {
+//           if (r.route && r.route.path && r.route.path !== '*') result.push(`http://${ip}${r.route.path}`);
+//         });
+
+//       });
+//       return result;
+//     })
+//     .then(result => res.send({endpoint_urls: result}));
+// });
