@@ -7,15 +7,15 @@ const bodyParser      = require('body-parser');
 const endpoints       = require('express-endpoints');
 const graphql         = require('graphql').graphql;
 
-const buildAppTask        = require('./tasks/build-app');
-const buildGraphIQLTask   = require('./tasks/build-graphiql');
-const schema              = require('./schema');
-
 const SERVICE_PORT    = process.env.PORT || 8080;
 const DISCOVERY_URLS  = (process.env.DISCOVERY_URLS || '').split(',').concat(['http://46.101.251.23:8500']);
 const SERVICE_NAME    = process.env.SERVICE_NAME || 'music-store-management';
 
-const http  = require('lc-http-client')({ discoveryServers: DISCOVERY_URLS });
+const schema              = require('./schema');
+const buildAppTask        = require('./tasks/build-app');
+const buildGraphIQLTask   = require('./tasks/build-graphiql');
+const initSeedsTask       = require('./tasks/init-seeds');
+
 const app   = express();
 
 app.enable('trust proxy');
@@ -41,20 +41,6 @@ app.get('/', (req, res) => res.render('app'));
 
 buildAppTask()
   .then(buildGraphIQLTask)
-  .then(() => app.listen(SERVICE_PORT, () => console.log(`Listen on: ${SERVICE_PORT}`)));
-
-// app.get('/endpoints', (req, res) => {
-//   http
-//     .getServiceUrls(SERVICE_NAME)
-//     .then(ips => {
-//       var result = [];
-//       ips.forEach(ip => {
-//         app._router.stack.forEach(r => {
-//           if (r.route && r.route.path && r.route.path !== '*') result.push(`http://${ip}${r.route.path}`);
-//         });
-
-//       });
-//       return result;
-//     })
-//     .then(result => res.send({endpoint_urls: result}));
-// });
+  .then(initSeedsTask)
+  .then(() => app.listen(SERVICE_PORT, () => console.log(`Listen on: ${SERVICE_PORT}`)))
+  .catch(error => console.error(error));

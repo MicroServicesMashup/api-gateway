@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-cli": "^6.4.5",
-    "babel-core": "^6.7.2",
+    "babel-core": "^6.7.4",
     "babel-loader": "^6.2.3",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
@@ -29,7 +29,7 @@
     "graphiql": "^0.5.0",
     "graphql": "^0.4.18",
     "graphql-relay": "^0.3.6",
-    "lc-http-client": "^1.1.3",
+    "lc-http-client": "^1.1.4",
     "lodash": "^4.5.1",
     "moment": "^2.11.1",
     "node-lessify": "^0.1.1",
